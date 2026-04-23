@@ -18,13 +18,13 @@ export default function Hero({ featuredCount = 5 }) {
         >
           <p className="badge mb-5 w-fit">
             <Sparkles className="h-3.5 w-3.5" />
-            Fintech comparison dashboard
+            Fintech comparison platform
           </p>
           <h1 className="font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-7xl">
             Compare payment methods with clarity, speed, and confidence.
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-            PayCompare turns e-payment selection into a decision dashboard. Compare UPI, net banking, cards, and wallets on fees, speed, security, acceptance, and reliability.
+            PayCompare turns e-payment selection into a decision system. Compare UPI, net banking, cards, and wallets on fees, speed, security, acceptance, and reliability.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link to="/compare" className="neon-button">
@@ -38,8 +38,8 @@ export default function Hero({ featuredCount = 5 }) {
           <div className="mt-8 flex flex-wrap gap-4 text-sm text-slate-300">
             {[
               "Premium glassmorphism UI",
-              "Chart-driven analytics",
-              "Mock API + admin route"
+              "Scenario-based insights",
+              "Mock API powered"
             ].map((item) => (
               <div key={item} className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2">
                 <BadgeCheck className="h-4 w-4 text-cyan-300" />

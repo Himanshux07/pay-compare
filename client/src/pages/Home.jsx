@@ -19,7 +19,7 @@ export default function Home() {
     { label: "Instant transfers", value: "UPI", caption: "Best for zero/low-fee speed", icon: Clock3 },
     { label: "Highest acceptance", value: "Cards", caption: "Widely accepted across merchants", icon: WalletCards },
     { label: "Secure checkout", value: "Net banking", caption: "Strong banking auth flows", icon: ShieldCheck },
-    { label: "Decision support", value: "Charts", caption: "Visual analytics for viva demos", icon: TrendingUp }
+    { label: "Decision support", value: "Insights", caption: "Actionable suggestions for viva demos", icon: TrendingUp }
   ];
 
   return (
@@ -36,7 +36,7 @@ export default function Home() {
         <SectionHeading
           eyebrow="Why it stands out"
           title="Built like a fintech product, not a basic CRUD demo"
-          description="The project combines a comparison engine, analytics charts, theme switching, and a recommendation flow to make the payment choice explainable and visually polished."
+          description="The project combines a comparison engine, scenario insights, theme switching, and a recommendation flow to make the payment choice explainable and visually polished."
         />
         <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
           <motion.div
@@ -50,10 +50,10 @@ export default function Home() {
               {[
                 "Side-by-side comparison table",
                 "Cheapest, fastest, safest filters",
-                "Radar, bar, and pie analytics",
+                "Scenario-based insights",
                 "Priority-based recommendation engine",
                 "Mobile responsive glass UI",
-                "Mock admin API for future extension"
+                "API-driven data pipeline"
               ].map((item) => (
                 <div key={item} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-slate-200">
                   {item}
@@ -65,8 +65,8 @@ export default function Home() {
                 Launch Compare Tool
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
-              <Link to="/dashboard" className="ghost-button">
-                Open Analytics
+              <Link to="/insights" className="ghost-button">
+                Open Insights
               </Link>
             </div>
           </motion.div>
@@ -119,7 +119,7 @@ export default function Home() {
                   cons: ["Scores are based on mock data"],
                   security: ["Mock API driven", "Responsive UI cards"]
                 };
-                return <PaymentCard key={method.id} method={data} selected={false} onToggle={() => {}} />;
+                return <PaymentCard key={method.id} method={data} selectable={false} />;
               })
             : null}
         </div>

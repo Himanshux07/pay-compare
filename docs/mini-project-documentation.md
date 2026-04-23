@@ -9,10 +9,9 @@ Build a full-stack web application that compares payment modes, visualizes their
 ## Modules
 1. Landing page with hero section and premium fintech UI
 2. Compare tool with search, sort, and side-by-side comparison
-3. Analytics dashboard with bar, radar, and pie charts
+3. Insights section with scenario-based recommendations
 4. Recommendation engine with weighted priorities
 5. About page for viva explanation and future scope
-6. Mock admin API for updating payment data
 
 ## Tech Stack
 - Frontend: React, Tailwind CSS, React Router, Chart.js, Framer Motion
@@ -28,13 +27,13 @@ Build a full-stack web application that compares payment modes, visualizes their
 
 ## Viva Talking Points
 - The app is not a static CRUD project; it uses scoring and analytics.
-- The dashboard makes the comparison visually explainable.
+- The insights section makes the comparison practically explainable.
 - The recommendation engine changes output based on user priorities.
-- The mock admin route makes the backend extensible for future database integration.
+- Backend APIs are clean and focused on comparison and recommendation data.
 
 ## Future Scope
 - MongoDB persistence
-- Authentication for admin updates
+- Authentication for user accounts and saved preferences
 - Live gateway data and merchant-level availability
 - Historical success-rate tracking
 - Saved user preferences

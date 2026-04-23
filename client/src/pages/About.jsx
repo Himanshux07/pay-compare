@@ -11,26 +11,26 @@ const blocks = [
   {
     title: "Core modules",
     content:
-      "Landing page, compare tool, analytics dashboard, recommendation engine, and about/documentation flow. The backend exposes mock APIs and an admin-style update route."
+      "Landing page, compare tool, insights section, recommendation engine, and about/documentation flow. The backend exposes mock APIs for all data reads."
   },
   {
     title: "Unique ideas",
     content:
-      "The project includes a scoring engine, chart-based analytics, dark/light mode, glassmorphism cards, and responsive compare tables so it feels closer to a product demo."
+      "The project includes a scoring engine, scenario-based insights, dark/light mode, glassmorphism cards, and responsive compare tables so it feels closer to a product demo."
   },
   {
     title: "Future scope",
     content:
-      "Connect live payment gateway data, persist updates with MongoDB, add authentication, and show merchant-specific availability and failure analytics."
+      "Connect live payment gateway data, persist updates with MongoDB, add authentication, and show merchant-specific availability and failure predictions."
   }
 ];
 
 export default function About() {
-  const [stats, setStats] = useState({ paymentMethods: [], analytics: [] });
+  const [stats, setStats] = useState({ paymentMethods: [] });
 
   useEffect(() => {
     paymentApi.stats().then((response) => {
-      setStats(response.data || { paymentMethods: [], analytics: [] });
+      setStats(response.data || { paymentMethods: [] });
     });
   }, []);
 
@@ -57,9 +57,9 @@ export default function About() {
   return (
     <div className="space-y-10">
       <SectionHeading
-        eyebrow="About project"
-        title="Documentation flow for college viva"
-        description="Use this page as your viva script: explain the problem, show the module split, highlight the innovative scoring logic, and then mention the future scope."
+        eyebrow="About PayCompare"
+        title="Platform overview and product direction"
+        description="This page summarizes the problem we solve, core modules, key differentiators, and future product roadmap."
       />
 
       <section className="grid gap-5 lg:grid-cols-2">
@@ -73,7 +73,7 @@ export default function About() {
 
       <section className="soft-card rounded-[1.75rem] p-6">
         <h3 className="font-display text-2xl font-bold text-white">Live project metrics</h3>
-        <p className="mt-2 text-sm text-slate-300">These values are computed from the current payment dataset, so this section updates when admin changes are made.</p>
+        <p className="mt-2 text-sm text-slate-300">These values are computed from the current payment dataset served by the backend API.</p>
         <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
           {liveMetrics.length ? (
             liveMetrics.map((metric) => (
@@ -90,13 +90,13 @@ export default function About() {
       </section>
 
       <section className="soft-card rounded-[1.75rem] p-6">
-        <h3 className="font-display text-2xl font-bold text-white">Mini project viva flow</h3>
+        <h3 className="font-display text-2xl font-bold text-white">Product communication flow</h3>
         <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {[
-            "Introduce the payment problem and why comparison matters.",
-            "Walk through the API and mock dataset.",
-            "Demo compare, dashboard, and recommendation pages.",
-            "Close with extensibility and future scope."
+            "Define the payment decision problem and user impact.",
+            "Explain the API-driven architecture and data model.",
+            "Show compare, insights, and recommendation experiences.",
+            "Align on roadmap and extensibility for scale."
           ].map((item) => (
             <div key={item} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm leading-7 text-slate-200">
               {item}

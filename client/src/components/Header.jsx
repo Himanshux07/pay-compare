@@ -1,11 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
-import { LayoutDashboard, Layers3, Sparkles } from "lucide-react";
+import { Layers3, Sparkles } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
 const links = [
   { to: "/", label: "Home" },
   { to: "/compare", label: "Compare" },
-  { to: "/dashboard", label: "Analytics" },
+  { to: "/insights", label: "Insights" },
   { to: "/recommend", label: "Recommend" },
   { to: "/about", label: "About" }
 ];
@@ -39,10 +39,6 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link to="/dashboard" className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition hover:border-cyan-400/40 hover:bg-cyan-400/10 md:inline-flex">
-            <LayoutDashboard className="h-4 w-4" />
-            Dashboard
-          </Link>
           <ThemeToggle />
         </div>
       </div>

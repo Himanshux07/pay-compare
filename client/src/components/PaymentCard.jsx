@@ -1,6 +1,6 @@
 import { BadgeCheck, ChevronRight, ShieldCheck, ThumbsDown, ThumbsUp } from "lucide-react";
 
-export default function PaymentCard({ method, selected = false, onToggle }) {
+export default function PaymentCard({ method, selected = false, onToggle, selectable = true }) {
   return (
     <article className={`soft-card rounded-[1.75rem] p-5 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30 ${selected ? "ring-2 ring-cyan-400/40" : ""}`}>
       <div className={`rounded-[1.4rem] bg-gradient-to-r ${method.color} p-[1px]`}>
@@ -11,13 +11,15 @@ export default function PaymentCard({ method, selected = false, onToggle }) {
               <h3 className="mt-2 font-display text-2xl font-bold text-white">{method.name}</h3>
               <p className="mt-2 text-sm leading-7 text-slate-300">{method.tag}</p>
             </div>
-            <button
-              type="button"
-              onClick={() => onToggle(method.id)}
-              className={`rounded-full px-4 py-2 text-xs font-semibold transition ${selected ? "bg-cyan-400/20 text-cyan-200" : "bg-white/5 text-slate-300 hover:bg-white/10"}`}
-            >
-              {selected ? "Selected" : "Select"}
-            </button>
+            {selectable && typeof onToggle === "function" ? (
+              <button
+                type="button"
+                onClick={() => onToggle(method.id)}
+                className={`rounded-full px-4 py-2 text-xs font-semibold transition ${selected ? "bg-cyan-400/20 text-cyan-200" : "bg-white/5 text-slate-300 hover:bg-white/10"}`}
+              >
+                {selected ? "Selected" : "Select"}
+              </button>
+            ) : null}
           </div>
 
           <div className="mt-5 flex flex-wrap gap-2 text-xs font-semibold">

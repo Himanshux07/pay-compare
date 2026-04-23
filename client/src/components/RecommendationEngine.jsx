@@ -140,7 +140,7 @@ export default function RecommendationEngine({ methods = [] }) {
           </div>
         </div>
 
-        {methods.length ? <PaymentCard method={methods[0]} selected={false} onToggle={() => {}} /> : null}
+        {methods.length ? <PaymentCard method={methods[0]} selectable={false} /> : null}
       </div>
     </div>
   );
