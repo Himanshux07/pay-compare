@@ -5,18 +5,11 @@ import {
   getComparisonSnapshot,
   getPaymentMethodById,
   paymentMethods,
-  recommendPaymentMethod,
-  updatePaymentMethod
+  recommendPaymentMethod
 } from "./data/paymentMethods.js";
 
 const app = express();
 const port = process.env.PORT || 5000;
-const adminKey = process.env.ADMIN_KEY || "";
-
-function isAdminAuthorized(request) {
-  const provided = request.headers["x-admin-key"];
-  return Boolean(adminKey) && provided === adminKey;
-}
 
 app.use(cors());
 app.use(express.json());
@@ -78,27 +71,6 @@ app.get("/api/stats", (_request, response) => {
   });
 });
 
-app.get("/api/admin/verify", (request, response) => {
-  if (!isAdminAuthorized(request)) {
-    return response.status(401).json({ message: "Unauthorized admin access" });
-  }
-
-  return response.json({ ok: true });
-});
-
-app.put("/api/admin/payment-methods/:id", (request, response) => {
-  if (!isAdminAuthorized(request)) {
-    return response.status(401).json({ message: "Unauthorized admin access" });
-  }
-
-  const updated = updatePaymentMethod(request.params.id, request.body);
-  if (!updated) {
-    return response.status(404).json({ message: "Payment method not found" });
-  }
-
-  return response.json({ message: "Payment method updated", data: updated });
-});
-
 app.get("/api", (_request, response) => {
   response.json({
     name: "PayCompare API",
@@ -108,9 +80,7 @@ app.get("/api", (_request, response) => {
       "/api/payment-methods/:id",
       "/api/compare?methods=upi,credit-card",
       "/api/recommendation",
-      "/api/stats",
-      "/api/admin/verify",
-      "/api/admin/payment-methods/:id"
+      "/api/stats"
     ]
   });
 });
