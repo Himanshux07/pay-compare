@@ -77,7 +77,7 @@ E-commerce users often need to choose between multiple payment methods with diff
 - Backend: Node.js, Express, CORS
 - Data: Mock JSON data served by the API
 
-## Viva Talking Points
+## Talking Points
 
 - The app uses a scoring engine rather than a static comparison page.
 - The analytics dashboard turns payment features into visual decision support.
