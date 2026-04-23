@@ -30,13 +30,21 @@ PayCompare/
 npm install
 ```
 
-3. Start both apps:
+3. Configure admin key for protected updates:
+
+On PowerShell:
+
+```powershell
+$env:ADMIN_KEY="your-secure-admin-key"
+```
+
+4. Start both apps:
 
 ```bash
 npm run dev
 ```
 
-4. Open the client at the Vite URL shown in the terminal and the API at `http://localhost:5000`.
+5. Open the client at the Vite URL shown in the terminal and the API at `http://localhost:5000`.
 
 ## Scripts
 
@@ -44,12 +52,28 @@ npm run dev
 - `npm run build` - build both apps
 - `npm run start` - start the API server only
 
+## Dev API Mode
+
+- By default, the client uses local fallback data in development to avoid proxy errors when backend is not running.
+- To force real backend API calls from the client, set:
+
+```powershell
+$env:VITE_USE_BACKEND="true"
+```
+
+- Then start from root so both run together:
+
+```bash
+npm run dev
+```
+
 ## Project Modules
 
 - Home page: hero, value props, quick comparison snapshot
 - Compare Tool: side-by-side comparison table, filters, search, and payment cards
 - Analytics Dashboard: fee, radar, and share charts
 - Recommendation Page: weighted suggestion engine for best payment mode
+- Admin Page: edit the mock payment dataset through the API
 - About Project: problem statement, modules, future scope, and viva notes
 
 ## Mini Project Flow
@@ -82,4 +106,10 @@ E-commerce users often need to choose between multiple payment methods with diff
 - The app uses a scoring engine rather than a static comparison page.
 - The analytics dashboard turns payment features into visual decision support.
 - Theme switching, responsive cards, and glassmorphism make the project look product-grade instead of CRUD-like.
-- The backend supports both public comparison APIs and an admin-style update route for extensibility.
+- The backend separates public endpoints from admin updates with a required admin key header.
+
+## Admin Security Notes
+
+- Admin updates are protected by `ADMIN_KEY` on the backend.
+- Users cannot update data unless they unlock admin access with the correct key in the Admin page.
+- If the backend is down, admin updates are disabled by design.
