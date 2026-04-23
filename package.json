@@ -1,0 +1,19 @@
+{
+  "name": "paycompare",
+  "private": true,
+  "version": "1.0.0",
+  "description": "PayCompare - Comparison Tool for E-Payment Options",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace server\" \"npm run dev --workspace client\"",
+    "build": "npm run build --workspace server && npm run build --workspace client",
+    "start": "npm run start --workspace server",
+    "install:all": "npm install --workspaces"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
